@@ -2,16 +2,14 @@
 <%place = 0%>
 <ul>
 
-  <%@spell_hash.each do |b| %>
-    <li>
-      
-      
-      <a href = "/<%=@spell_hash[place]["name"]%>">
-       <%=@spell_hash[place]["name"]%> 
+  <%@spell_list.each do |iterations| %>
+    <li>    
+      <a href = "/<%=@spell_list[place]["index"]%>">
+      <%=@spell_list[place]["name"]%> 
       </a>
       <%place = place + 1%>
     </li>
   <%end%>
 </ul>
-<%@spell_hash[0]%>
+
   
