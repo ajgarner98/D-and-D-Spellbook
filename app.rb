@@ -5,6 +5,7 @@ require "json"
 require 'uri'
 require 'net/http'
 require 'openssl'
+require "sinatra/cookies"
 
 get("/") do
   
@@ -24,4 +25,14 @@ get("/:description") do
  
 
   erb(:description)
+end
+
+get("/:saved_spell/favorites") do
+  @favored = params.fetch("saved_spell")
+  @fav_index = 1
+  @fav_index_string = @fav_index.to_s
+  cookies[@fav_index_string] = @favored
+  @stored_favs = cookies[@fav_index_string]
+  @fav_index = @fav_index + 1
+  erb(:favorite)
 end
