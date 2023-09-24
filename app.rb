@@ -10,7 +10,9 @@ get("/") do
   
   @spells_API = HTTP.get("https://www.dnd5eapi.co/api/spells/")
   @spells = JSON.parse(@spells_API)
-  @the_spells = @spells.fetch("results")
+  @the_spell_index = @spells.fetch("results")
+  @spell_hash = @the_spell_index
+  #@spell_names = @spell_hash.fetch("name")
   
-  
+  erb (:home)
 end

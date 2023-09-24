@@ -1,10 +1,17 @@
 <h1> All Spells </h1>
+<%place = 0%>
 <ul>
 
-  <%@spells.each do |b,c| %>
+  <%@spell_hash.each do |b| %>
     <li>
-      <a href = "/<%=b%>">
-      <%=b%> 
+      
+      
+      <a href = "/<%=@spell_hash[place]["name"]%>">
+       <%=@spell_hash[place]["name"]%> 
+      </a>
+      <%place = place + 1%>
     </li>
   <%end%>
 </ul>
+<%@spell_hash[0]%>
+  
