@@ -7,6 +7,8 @@ require 'net/http'
 require 'openssl'
 require "sinatra/cookies"
 
+
+
 get("/") do
   
   @spells_API = HTTP.get("https://www.dnd5eapi.co/api/spells/")
