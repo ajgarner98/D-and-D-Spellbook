@@ -1,9 +1,16 @@
 require "sinatra"
 require "sinatra/reloader"
+require "http"
+require "json"
+require 'uri'
+require 'net/http'
+require 'openssl'
 
 get("/") do
-  "
-  <h1>Welcome to your Sinatra App!</h1>
-  <p>Define some routes in app.rb</p>
-  "
+  
+  @spells_API = HTTP.get("https://www.dnd5eapi.co/api/spells/acid-arrow")
+  @spells = JSON.parse(@spells_API)
+  @the_spell = @spells.fetch("name")
+  @the_description = @spells.fetch("desc")
+  
 end
