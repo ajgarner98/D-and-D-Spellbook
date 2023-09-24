@@ -1,1 +1,10 @@
-<h1> Home </h1>
+<h1> All Spells </h1>
+<ul>
+
+  <%@spells.each do |b,c| %>
+    <li>
+      <a href = "/<%=b%>">
+      <%=b%> 
+    </li>
+  <%end%>
+</ul>

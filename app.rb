@@ -8,9 +8,9 @@ require 'openssl'
 
 get("/") do
   
-  @spells_API = HTTP.get("https://www.dnd5eapi.co/api/spells/acid-arrow")
+  @spells_API = HTTP.get("https://www.dnd5eapi.co/api/spells/")
   @spells = JSON.parse(@spells_API)
-  @the_spell = @spells.fetch("name")
-  @the_description = @spells.fetch("desc")
+  @the_spells = @spells.fetch("results")
+  
   
 end
