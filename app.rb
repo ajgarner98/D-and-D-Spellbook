@@ -30,11 +30,4 @@ get("/:description") do
   erb(:description)
 end
 
-get("/:saved_spell/favorites") do
-  @favored = params.fetch("saved_spell")
-  @favorite_array = Array.new()
-  cookies["1"] = @favored
-  @stored_favs = cookies["1"]
-  @new_fav_array = @favorite_array.push(@stored_favs)
-  erb(:favorite)
-end
+
