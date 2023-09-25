@@ -15,6 +15,7 @@ get("/") do
   @spells = JSON.parse(@spells_API)
   @the_spell_index = @spells.fetch("results")
   @spell_list = @the_spell_index
+  @random_spell = rand(0..@spell_list.length)
   #@spell_names = @spell_hash.fetch("name")
   
   erb(:home)
@@ -31,10 +32,9 @@ end
 
 get("/:saved_spell/favorites") do
   @favored = params.fetch("saved_spell")
-  @fav_index = 1
-  @fav_index_string = @fav_index.to_s
-  cookies[@fav_index_string] = @favored
-  @stored_favs = cookies[@fav_index_string]
-  @fav_index = @fav_index + 1
+  @favorite_array = Array.new()
+  cookies["1"] = @favored
+  @stored_favs = cookies["1"]
+  @new_fav_array = @favorite_array.push(@stored_favs)
   erb(:favorite)
 end

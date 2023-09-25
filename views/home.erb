@@ -1,5 +1,13 @@
 <h1> All Spells </h1>
+
 <%place = 0%>
+
+<div> <form action="/<%=@spell_list[@random_spell]["index"]%>">
+  <button>
+    Random Spell
+  </button>
+</form>
+</div>
 <ul>
 
   <%@spell_list.each do |iterations| %>
@@ -11,5 +19,7 @@
     </li>
   <%end%>
 </ul>
+
+
 
   
